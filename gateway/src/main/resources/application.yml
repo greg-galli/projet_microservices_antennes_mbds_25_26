@@ -5,14 +5,17 @@ spring:
     gateway:
       server:
         webflux:
-          routes:
-            - id: customers
-              uri: http://localhost:8080/
-              predicates:
-                - Path=/customers/**
-            - id: accounts
-              uri: http://localhost:8081/
-              predicates:
-                - Path=/accounts/**
+          discovery:
+            locator:
+              enabled: true
+#          routes:
+#            - id: customers
+#              uri: http://localhost:8080/
+#              predicates:
+#                - Path=/customers/**
+#            - id: accounts
+#              uri: http://localhost:8081/
+#              predicates:
+#                - Path=/accounts/**
 server:
   port: 8888
